@@ -19,7 +19,7 @@ class WatchParty(generics.GenericAPIView):
     #     return self.
 
 
-class GroupParty(generics.UpdateAPIView, generics.GenericAPIView):
+class GroupParty(generics.RetrieveUpdateDestroyAPIView):
     queryset = PartyGroup.objects.all()
     serializer_class = PartyGroupSerializer
     lookup_field = 'pk'

@@ -32,6 +32,13 @@ class PartyGroupSerializer(serializers.ModelSerializer):
         model = PartyGroup
         exclude = []
 
+    def update(self, instance, validated_data):
+        super().update(instance, validated_data)
+        if instance.new_member:
+            instance.new_member = False
+            instance.save()
+        return instance
+
 
 class WatchPartySerializer(serializers.ModelSerializer):
 

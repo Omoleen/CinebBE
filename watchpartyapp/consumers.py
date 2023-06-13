@@ -96,7 +96,7 @@ class ChatConsumer(GenericAsyncAPIConsumer):
                 name, admin = await sync_to_async(self.get_user_name_and_admin)(user, partygroup)
                 if admin != user:
                     await database_sync_to_async(PartyGroupMessage.objects.create)(partyGroup=partygroup, message=f'{name} joined the watch party!', message_from_machine=True)
-                    await database_sync_to_async(self.update_party_users)(partygroup)
+                    await database_sync_to_async(self.update_party_users)(partygroup,)
 
         except PartyGroup.DoesNotExist:
             await self.send_json({

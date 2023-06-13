@@ -9,7 +9,8 @@ class PartyGroup(models.Model):
     url = models.URLField(null=True, blank=True)
     num_of_users = models.IntegerField(default=1)
     is_playing = models.BooleanField(default=False)
-    current_time = models.DecimalField(max_digits=100, decimal_places=50, default=0.00)
+    current_time = models.DecimalField(max_digits=100, decimal_places=6, default=0.00)
+    new_member = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.id}'
