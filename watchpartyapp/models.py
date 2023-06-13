@@ -7,7 +7,7 @@ class PartyGroup(models.Model):
     adminUser = models.ForeignKey(User, on_delete=models.CASCADE, related_name='party_group')
     id = models.CharField(max_length=128, unique=True, primary_key=True)
     url = models.URLField(null=True, blank=True)
-    num_of_users = models.IntegerField(default=1)
+    num_of_users = models.IntegerField(default=0)
     is_playing = models.BooleanField(default=False)
     current_time = models.DecimalField(max_digits=100, decimal_places=6, default=0.00)
     new_member = models.BooleanField(default=False)
